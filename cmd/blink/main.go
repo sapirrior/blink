@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -14,5 +15,11 @@ func main() {
 	}
 
 	var url = os.Args[1]
-	engine.Open(url)
+	err := engine.Open(url)
+	if err != nil {
+		log.Fatal("blink:", err)
+		os.Exit(1)
+	}
+
+	fmt.Println("Opening Link...")
 }
